@@ -1,20 +1,19 @@
 using Soenneker.Paddle.OpenApiClientUtil.Abstract;
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Paddle.OpenApiClientUtil.Tests;
 
-[Collection("Collection")]
-public sealed class PaddleOpenApiClientUtilTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public sealed class PaddleOpenApiClientUtilTests : HostedUnitTest
 {
     private readonly IPaddleOpenApiClientUtil _openapiclientutil;
 
-    public PaddleOpenApiClientUtilTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public PaddleOpenApiClientUtilTests(Host host) : base(host)
     {
         _openapiclientutil = Resolve<IPaddleOpenApiClientUtil>(true);
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
