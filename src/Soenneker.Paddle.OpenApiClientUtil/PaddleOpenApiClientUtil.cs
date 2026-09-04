@@ -11,6 +11,7 @@ using Soenneker.Utils.AsyncSingleton;
 
 namespace Soenneker.Paddle.OpenApiClientUtil;
 
+/// <inheritdoc cref="IPaddleOpenApiClientUtil" />
 public sealed class PaddleOpenApiClientUtil : IPaddleOpenApiClientUtil
 {
     private readonly AsyncSingleton<PaddleOpenApiClient> _client;
